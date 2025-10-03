@@ -7,6 +7,7 @@ const GBP = 6.20
 const form = document.querySelector("form");
 const amount = document.getElementById("amount");
 const currency = document.getElementById("currency");
+const footer = document.querySelector("main footer");
 
 
 // Manipulando o valor digitado no input para receber números
@@ -35,5 +36,14 @@ form.onsubmit = (event) => {
 
 // Função para converter o valor
 function converterCurrency(amount, price, symbol){
-    console.log(amount, price, symbol)
+    
+    try{
+        // Aplica a class que exibe o footer para mostrar o resultado
+        footer.classList.add("show-result")
+    } catch (error){
+        // Remove a class que exibe o footer para esconder o resultado
+        footer.classList.remove("show-result")
+        console.log(error)
+        alert("Ocorreu um erro, tente novamente mais tarde.")
+    }
 }
